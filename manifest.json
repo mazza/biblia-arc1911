@@ -1,0 +1,49 @@
+{
+  "schema": "bible-edition/1",
+  "id": "arc1911",
+  "name": "Almeida Revista e Corrigida, Lisboa, 1911",
+  "language": "pt",
+  "canon_shape": "protestant",
+  "license": {
+    "structuring": "CC0-1.0",
+    "edition_text": "public-domain"
+  },
+  "markdown": {
+    "grammar": "edition-canon/1",
+    "spec": "docs/format.md",
+    "footnote_id": "[^<USFM>_<chapter>_<verse>_<letter>]",
+    "note_letter": "chapter-order"
+  },
+  "upstream": [
+    {
+      "name": "Project Gutenberg eBook 62383",
+      "title": "A Biblia Sagrada, Contendo o Velho e o Novo Testamento",
+      "imprint": "Lisboa, Deposito das Escripturas Sagradas, 1911 (reimpressão da de 1900)",
+      "page": "https://www.gutenberg.org/ebooks/62383",
+      "path": "archive/pg62383.txt",
+      "url": "https://www.gutenberg.org/cache/epub/62383/pg62383.txt",
+      "accessed": "2026-09-27"
+    }
+  ],
+  "archive": [
+    {
+      "path": "archive/pg62383.txt",
+      "url": "https://www.gutenberg.org/cache/epub/62383/pg62383.txt",
+      "sha256": "bf9c6053bfb441d117a2a128d4edec9fbe935f415bc8f7bf4e1f3f9121790215",
+      "bytes": 5161686
+    }
+  ],
+  "prepared": [],
+  "extras": [],
+  "pipeline": [
+    "python3 pipeline/fetch_archive.py",
+    "python3 pipeline/build_canon.py",
+    "python3 pipeline/verify.py",
+    "python3 pipeline/build_bible.py",
+    "python3 pipeline/build_bible.py --original",
+    "python3 pipeline/build_bible.py --testament ot",
+    "python3 pipeline/build_bible.py --testament nt",
+    "python3 pipeline/build_bible.py --original --testament ot",
+    "python3 pipeline/build_bible.py --original --testament nt"
+  ]
+}
